@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/config.js"></script>
+    <script src="config.js"></script>
+    <script src="aboutblank.js"></script>
     <title>Gsite template</title>
     <style>
+        #image-container {
+            padding: 100px;
+        }
         .image-link {
             display: inline-block;
             margin: 10px;
@@ -22,15 +26,19 @@
         .image-link img:hover {
             transform: scale(1.1);
         }
+        .title {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
+    <h2 class="title">Your site name</h2>
     <div id="image-container"></div>
 
     <script>
+        var x = localStorage.getItem("site");
 
-
-        if (list.length !== imagesrc.length || list.length !== listlink.length) {
+        if (list.length !== imgsrc.length || list.length !== listlink.length) {
             console.error("Arrays must have the same length!");
         } else {
             const container = document.getElementById("image-container");
@@ -38,20 +46,23 @@
             list.forEach((item, index) => {
                 // Create anchor element
                 const link = document.createElement("a");
-                link.href = listlink[index];
+
+                link.href = x + listlink[index];
+
                 link.target = "_blank";
                 link.className = "image-link";
 
-                // Create image element
                 const img = document.createElement("img");
-                img.src = imagesrc[index];
+                img.style.width = "100px";
+                img.style.height = "100px";
+                img.src = x + imgsrc[index];
                 img.alt = item;
 
-                // Append image to link, then link to container
                 link.appendChild(img);
                 container.appendChild(link);
             });
         }
+        openAboutBlank()
     </script>
 </body>
 </html>
