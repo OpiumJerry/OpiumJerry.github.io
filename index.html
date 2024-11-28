@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Image Links</title>
+    <style>
+        .image-link {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .image-link img {
+            max-width: 150px;
+            max-height: 150px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+
+        .image-link img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="image-container"></div>
+
+    <script>
+
+
+        if (list.length !== imagesrc.length || list.length !== listlink.length) {
+            console.error("Arrays must have the same length!");
+        } else {
+            const container = document.getElementById("image-container");
+
+            list.forEach((item, index) => {
+                // Create anchor element
+                const link = document.createElement("a");
+                link.href = listlink[index];
+                link.target = "_blank";
+                link.className = "image-link";
+
+                // Create image element
+                const img = document.createElement("img");
+                img.src = imagesrc[index];
+                img.alt = item;
+
+                // Append image to link, then link to container
+                link.appendChild(img);
+                container.appendChild(link);
+            });
+        }
+    </script>
+</body>
+</html>
