@@ -1,32 +1,5 @@
-(async function checkSites() {
-    const sites = [
-        "https://ph4xus.github.io"
-    ];
-
-    let siteAvailable = false;
-
-    for (let site of sites) {
-        try {
-            const response = await fetch(site, { method: 'HEAD' });
-            if (response.ok) {
-                if (!siteAvailable) {
-                    localStorage.setItem("site", site);
-                    siteAvailable = true;
-                }
-                console.log(`Site available: ${site}`);
-                break; 
-            } else {
-                console.log(`Site not reachable (status: ${response.status}): ${site}`);
-            }
-        } catch (error) {
-            console.log(`Error accessing site: ${site} | Error: ${error.message}`);
-        }
-    }
-
-    if (!siteAvailable) {
-        console.log("No sites are available.");
-    }
-})();
+localStorage.setItem("https://ph4xus.github.io", site); 
+siteAvailable = true;
 
 
 
