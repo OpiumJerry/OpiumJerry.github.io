@@ -5,21 +5,31 @@
         "https://phexus.bitbucket.io"
     ];
 
+    let siteAvailable = false;
+
     for (let site of sites) {
         try {
             const response = await fetch(site, { method: 'HEAD' });
             if (response.ok) {
-                localStorage.setItem("site", site);
+                if (!siteAvailable) {
+                    localStorage.setItem("site", site);
+                    siteAvailable = true;
+                }
                 console.log(`Site available: ${site}`);
-                return;
+                break; 
+            } else {
+                console.log(`Site not reachable (status: ${response.status}): ${site}`);
             }
         } catch (error) {
-            console.log(`Site unavailable: ${site}`);
+            console.log(`Error accessing site: ${site} | Error: ${error.message}`);
         }
     }
 
-    console.log("No sites are available.");
+    if (!siteAvailable) {
+        console.log("No sites are available.");
+    }
 })();
+
 
 
 let list = ['Stickman hook', '1v1.lol', 'Buildnow.gg', 'Cookie Clicker', 'Retro Football', 'Agar.io', 'Smash karts', 'Slope', 'yohoho', 'Motor X3m', 'Monkey Mart', 'Awesome Tanks 2', 'Time Shooter 3', 'Sling Drift', 'Drift Boss', 'Bank Robbery', 'ovo', 'tiny fishing', 'vex 6', 'Basketball Stars', 'sm64', '60 second burger run', 'Paper.io 2', 'Cat mario', 'Idle breakout', 'Ducklife', 'Ducklife2', 'Ducklife3', 'Pixel Gun 2', 'Drive mad', 'Cluster Rush', '10 minutes till dawn', 'Google Snake', 'Gun mayhem 2', 'Generic fishing', 'FNAF', 'Ninja vs evilcorp', 'CSGO clicker', 'madalin stunt cars', 'bitlife', 'snowrider', 'Jetpack joyride', 'Impossible quiz', 'Pappas pizzaria', 'Pappas Freezeria', 'Pappas Pancakearia', 'World hardest gm 2', 'Rooftop sniper', 'stack', 'Tanuki sunset', 'Soccer random', 'Subway surfers', 'Learn to fly', 'Learn2fly', 'Hilldraw', 'Snoball io', 'Fireboy and water girl', 'Pixel Speedrun', 'A dance of fire and ice', 'giraffes volleyball', 'Deepest sword', 'Bottle flip 3d', 'Choppy orc', 'Precision client 1.5', 'Funny shooter', 'Hole io', 'Tomb of the mask', 'Doge miner', 'Run 3', 'Sausage flip', 'Sandstrike.io', 'Color tunnel', 'Polytrack', 'Friday night funkin']
