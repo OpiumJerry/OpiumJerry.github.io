@@ -1,5 +1,32 @@
-localStorage.setItem("https://ph4xus.github.io", site); 
-siteAvailable = true;
+(async function checkSites() {
+    const sites = [
+        "https://ph4xus.github.io"
+    ];
+
+    let siteAvailable = false;
+
+    for (let site of sites) {
+        try {
+            const response = await fetch(site, { method: 'HEAD' });
+            if (response.ok) {
+                if (!siteAvailable) {
+                    localStorage.setItem("site", site);
+                    siteAvailable = true;
+                }
+                console.log(`Site available: ${site}`);
+                break; 
+            } else {
+                console.log(`Site not reachable (status: ${response.status}): ${site}`);
+            }
+        } catch (error) {
+            console.log(`Error accessing site: ${site} | Error: ${error.message}`);
+        }
+    }
+
+    if (!siteAvailable) {
+        console.log("No sites are available.");
+    }
+})();
 
 
 
@@ -8,4 +35,3 @@ let list = ['Stickman hook', '1v1.lol', 'Buildnow.gg', 'Cookie Clicker', 'Retro 
 let imgsrc = ['/assets/img/stickman.jpeg', '/assets/img/1v1.webp', '/assets/img/builf.png', '/assets/img/cookieclicker.webp', '/assets/img/retrobowl.jpeg', '/assets/img/agar.png', '/Vafor_IT-main/d2f6b8c9e4a1f7d5a3c9e1b8f6d4a2e3/9c9e529b14731be871b07b89660bbc2a.png', '/assets/img/slope2.png', '/assets/img/pirates2.jfif', '/assets/img/moto.jfif', '/assets/img/monkey.jfif', '/assets/img/tanks2.jfif', '/assets/img/superhot.jfif', '/Vafor_IT-main/badtaxidriver/thumbnail.jpg', '/assets/img/drift.jpeg', '/assets/img/bank4.png', '/assets/img/ovo.png', '/assets/img/tinyfishing.png', '/assets/img/vex6.png', '/assets/img/basketball.jpeg', '/assets/img/sm64.jpg', '/assets/img/burger.png', '/assets/img/paper.jpg', '/assets/img/cat.png', '/assets/img/idle.png', '/assets/img/duck.jpeg', '/assets/img/ducklife2.webp', '/assets/img/ducklife3.webp', '/assets/img/pixelgun.jfif', '/assets/img/drivemad.jpeg', '/assets/img/bustergush.png', '/assets/img/20min.jfif', '/assets/img/drakethesnake.png', '/assets/img/gunmayhem.jpeg', '/assets/img/fishing.png', '/assets/img/fnaf.webp', '/assets/img/ninja.png', '/assets/img/csgo.png', '/assets/img/mcm.png', '/assets/img/bitlife.jpeg', '/assets/img/snow.png', '/assets/img/jet.png', '/assets/img/averageschool.png', '/Vafor_IT-main/papaspizzaria/papaspizzaria.jpg', '/assets/img/papas-freezeria.webp', '/assets/img/papaspancakes.png', '/Vafor_IT-main/worlds-hardest-game-2/the-worlds-hardest-game-2.jpg', '/assets/img/rooft.png', '/Vafor_IT-main/stack/stack.png', '/Vafor_IT-main/tanuki-sunset/img/logo.png', '/Vafor_IT-main/soccer-random/splash.png', '/Vafor_IT-main/subway-surfers/img/splash.jpg', '/assets/img/learntofly.jpeg', '/assets/img/learn.jpeg', '/Vafor_IT-main/hilldraw/icons/icon-512.png', '/assets/img/snowgamingisdead.jpg', '/assets/img/fireandwater.jpg', '/assets/img/pixelspeedrun.png', '/Vafor_IT-main/dances/splash.png', '/Vafor_IT-main/7a9b3c4e2f6d1e8c5a2f4b7d9e3c0a6f/favico.png', '/assets/img/deepest-sword.png', '/assets/img/sddefault.jpg', '/assets/img/thumb_2.jpg', '/assets/img/imgoingtoslapmartin.png', '/assets/img/funnyshooter.webp', '/assets/img/hole.io.jfif', '/assets/img/tomb-of-the-mask-logo.jpeg', '/Vafor_IT-main/doge/img/dogeminer_300x300.png', '/Vafor_IT-main/run3editor/loading.png', '/assets/img/sausage.jpg', '/assets/img/sanstrike.webp', '/Vafor_IT-main/colourtunnel/TemplateData/logo.png', '/assets/img/poly.jpeg', '/Vafor_IT-main/fnfweek7/friday-night-funkin.png']
 
 let listlink = ['/Vafor_IT-main/hookingman/', '/Vafor_IT-main/1a3b7c9e1f2g4h5j6k8l0m1n2p3q4r5s', '/Vafor_IT-main/a3f5d9e7c2b8a4e1f3d5c7e9b0a4f6c8/', '/Vafor_IT-main/cookie-clicker/', '/Vafor_IT-main/retrobowl/', '/Vafor_IT-main/jptr-agario-main/jptr-agario-main/web/index.html', '/Vafor_IT-main/d2f6b8c9e4a1f7d5a3c9e1b8f6d4a2e3', '/Vafor_IT-main/slope', '/Vafor_IT-main/pirates', '/Vafor_IT-main/mx3m', '/Vafor_IT-main/ihatemonkeys', '/Vafor_IT-main/awesometanks2/', '/Vafor_IT-main/time-shooter-3', '/Vafor_IT-main/badtaxidriver', '/Vafor_IT-main/germany%20drift/DriftBoss-gh-pages/', '/Vafor_IT-main/bank', '/Vafor_IT-main/ovo', '/Vafor_IT-main/tiny-fishing', '/Vafor_IT-main/vex6', '/Vafor_IT-main/basketball-stars', '/Vafor_IT-main/sm64', '/Vafor_IT-main/60min/index.html', '/Vafor_IT-main/paper-io-2/index.html', '/Vafor_IT-main/cat-mario/index.html', '/Vafor_IT-main/idle-breakout-main/idle-breakout-main/index.html', '/Vafor_IT-main/ducklife1/index.html', '/Vafor_IT-main/ducklife2', '/Vafor_IT-main/ducklife3', '/Vafor_IT-main/pixelgun/maxwellstevenson.com.html', '/Vafor_IT-main/drive-mad/', '/Vafor_IT-main/bustergush', '/Vafor_IT-main/10-minutes-till-dawn/', '/Vafor_IT-main/google-snake/', '/Vafor_IT-main/gunmayhem2/', '/Vafor_IT-main/fishing_game/', '/Vafor_IT-main/scarybear/', '/Vafor_IT-main/ninja.html', '/Vafor_IT-main/csgo_clicker/', '/Vafor_IT-main/mcm-files-main/mcm-files-main/index.html', '/Vafor_IT-main/bitlife/', '/Vafor_IT-main/Snow-Rider3D-main/index.html', '/Vafor_IT-main/jetpack-joyride/', '/Vafor_IT-main/impossiblequiz/', '/Vafor_IT-main/papaspizzaria/', '/Vafor_IT-main/papasfreezeria/', '/Vafor_IT-main/papaspancakeareia/', '/Vafor_IT-main/worlds-hardest-game-2/index.html', '/Vafor_IT-main/rooftop-snipers/', '/Vafor_IT-main/stack/', '/Vafor_IT-main/tanuki-sunset/', '/Vafor_IT-main/soccer-random/', '/Vafor_IT-main/subway-surfers/', '/Vafor_IT-main/learntofly/', '/Vafor_IT-main/learn2fly/index.html', '/Vafor_IT-main/hilldraw/', '/Vafor_IT-main/snowballio-main/', '/Vafor_IT-main/fireboywatergirlforesttemple-main/', '/Vafor_IT-main/pixellyballs/', '/Vafor_IT-main/dances/', '/Vafor_IT-main/7a9b3c4e2f6d1e8c5a2f4b7d9e3c0a6f', '/Vafor_IT-main/deepswordayo/', '/Vafor_IT-main/bottleflippingdiedin20126/', '/Vafor_IT-main/oh-good-good/docs/index.html', '/Vafor_IT-main/precision-client/precision-client-v34.6/public/', '/Vafor_IT-main/VAzg42bVjmum4loaFEocbmzmkIYQggJd/', '/Vafor_IT-main/hole.io/', '/Vafor_IT-main/totm', '/Vafor_IT-main/doge/', '/Vafor_IT-main/run3editor/', '/Vafor_IT-main/sausage/', '/Vafor_IT-main/sanstrike.io/', '/Vafor_IT-main/colourtunnel', '/Vafor_IT-main/polytrack', '/Vafor_IT-main/fnfweek7/']
-
