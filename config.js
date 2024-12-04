@@ -1,8 +1,6 @@
 (async function checkSites() {
     const sites = [
-        "https://maxwellstevenson.com",
-        "https://ph4xus.github.io",
-        "https://phexus.bitbucket.io"
+        "https://ph4xus.github.io"
     ];
 
     let siteAvailable = false;
