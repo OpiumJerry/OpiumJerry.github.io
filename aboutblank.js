@@ -1,6 +1,6 @@
 function openAboutBlank() {
     setTimeout(function() {
-        var links = document.querySelectorAll('div.for a');
+        var links = document.querySelectorAll('div.image-container a');
         links.forEach(function(link) {
             link.onclick = function(event) {
                 event.preventDefault(); 
