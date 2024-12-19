@@ -1,167 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8624078226948894"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8624078226948894" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="keywords" content="opiumjerrygames, ez games 66, ez games 66 unblocked, EZ games 66, EZ games 66 unblocked, EZ games 67 unblocked, ez games 67 unblocked, game websites, unblocked games, free games, unblocked games free, opium jerry games, opium jerry">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="config.js"></script>
     <script src="aboutblank.js"></script>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MT2H2SM8KQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MT2H2SM8KQ');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MT2H2SM8KQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-MT2H2SM8KQ');
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.google.com/specimen/Anton+SC?preview.text=OPIUM%20JERRY" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
     <title>OpiumJerry.com</title>
-    <style>
-        body {
-            background-color:black;
-        }
-        #image-container {
-            padding: 10px 100px;
-        }
-        .image-link {
-            display: inline-block;
-            margin: 10px;
-        }
-
-        .image-link img {
-            max-width: 150px;
-            max-height: 150px;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            transition: transform 0.2s;
-        }
-
-        .image-link img:hover {
-            transform: scale(1.1);
-        }
-        .title {
-            text-align: center;
-            color:white;
-         font-family: "Anton SC", cursive;
-          font-weight: 400;
-          font-style: normal;
-        }
-         footer {
-    background-color: #111; /* Slightly lighter black to differentiate from the background */
-    color: #fff; /* White text for contrast */
-    text-align: center; /* Center the text */
-    padding: 15px 0; /* Add padding for a comfortable spacing */
-    border-top: 1px solid #444; /* Subtle border to create separation */
-    width: 100%; /* Ensure it spans the full width */
-    font-size: 14px; /* Set a readable font size */
-  }
-        .overlay {
-  height: 0%;
-  width: 100%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.9);
-  overflow-y: hidden;
-  transition: 0.5s;
-}
-
-.overlay-content {
-  position: relative;
-  top: 25%;
-  width: 100%;
-  text-align: center;
-  margin-top: 30px;
-}
-
-.overlay a {
-  padding: 8px;
-  text-decoration: none;
-  font-size: 36px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.overlay a:hover, .overlay a:focus {
-  color: #f1f1f1;
-}
-
-.overlay .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
-}
-
-@media screen and (max-height: 450px) {
-  .overlay {overflow-y: auto;}
-  .overlay a {font-size: 20px}
-  .overlay .closebtn {
-  font-size: 40px;
-  top: 15px;
-  right: 35px;
-  }
-}
- </style>
 </head>
 <body>
     <div id="myNav" class="overlay">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <div class="overlay-content">
-    <a href="#">Games</a>
-    <a href="#">Apps</a>
-    <a href="#">settings</a>
-  </div>
-</div>
-<span style="font-size:30px;cursor:pointer  color:white;" onclick="openNav()">&#9776; </span>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">Games</a>
+            <a href="#">Apps</a>
+            <a href="#">Settings</a>
+        </div>
+    </div>
+    <span style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776;</span>
     <h2 class="title">Welcome to Opium Jerry's site!</h2>
     <h3 class="title">Explore 50+ Games</h3>
     <div id="image-container"></div>
-<footer>© OPIUMJERRY 2024. All rights reserved</footer>
+    <footer>© OPIUMJERRY 2024. All rights reserved</footer>
     <script>
         function openNav() {
-  document.getElementById("myNav").style.height = "100%";
-}
-
-function closeNav() {
-  document.getElementById("myNav").style.height = "0%";
-}
-        var x = localStorage.getItem("site");
-
-        if (list.length !== imgsrc.length || list.length !== listlink.length) {
-            console.error("Arrays must have the same length!");
-        } else {
-            const container = document.getElementById("image-container");
-
-            list.forEach((item, index) => {
-                // Create anchor element
-                const link = document.createElement("a");
-
-                link.href = x + listlink[index];
-
-                link.target = "_blank";
-                link.className = "image-link";
-
-                const img = document.createElement("img");
-                img.style.width = "100px";
-                img.style.height = "100px";
-                img.src = x + imgsrc[index];
-                img.alt = item;
-                img.style.padding="20px";
-
-                link.appendChild(img);
-                container.appendChild(link);
-            });
+            document.getElementById("myNav").style.height = "100%";
         }
-        openAboutBlank()
+        function closeNav() {
+            document.getElementById("myNav").style.height = "0%";
+        }
+  
+        const baseUrl = "https://ph4xus.github.io/";
+
+      fetch('https://ph4xus.github.io/list.json')
+        .then(response => response.json())
+        .then(data => {
+          const gameContainer = document.getElementById('game-container');
+          data.forEach(game => {
+            const gameCard = document.createElement('div');
+            gameCard.classList.add('game-card');
+            gameCard.innerHTML = `
+              <a href="${baseUrl + game.linksrc}" target="_blank" class="image-link">
+                <img src="${baseUrl + game.imgsrc}" alt="${game.name}" style="width: 100px; height: 100px; padding: 20px;">
+              </a>
+            `;
+            gameContainer.appendChild(gameCard);
+          });
+        })
+        .catch(error => console.error('Error loading game data:', error));
+
+        openAboutBlank();
     </script>
 </body>
 </html>
