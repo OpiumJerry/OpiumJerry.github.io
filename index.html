@@ -67,10 +67,10 @@
         let link2 = getParentFolder(); 
         function default2(){
             setTimeout(function() {
-            var links = document.querySelectorAll('section.gxme-grid a');
+            var links = document.querySelectorAll('div.image-container a');
             links.forEach(function(link) {
                 link.onclick = function(event) {
-                    var gameName = link.querySelector('img') ? link.querySelector('img').alt : 'Why are you here';
+                    var gameName = link.querySelector('img') s? link.querySelector('img').alt : 'Why are you here';
                     event.preventDefault(); 
                     let encodedStr = btoa(link.href);
                     window.open(link2 + "/play?game=" + encodedStr + "&name=" + encodeURIComponent(gameName), '_self');
