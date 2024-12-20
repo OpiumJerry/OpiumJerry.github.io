@@ -35,51 +35,52 @@
     <div id="image-container"></div>
     <footer>© OPIUMJERRY 2024. All rights reserved</footer>
     <script>
-      function getParentFolder() {
-    return window.location.origin; // Returns the protocol + domain
-}
+        function getParentFolder() {
+            return window.location.origin; // Returns the protocol + domain
+        }
+
         function openNav() {
             document.getElementById("myNav").style.height = "100%";
         }
+
         function closeNav() {
             document.getElementById("myNav").style.height = "0%";
         }
-  
+
         const baseUrl = "https://ph4xus.github.io/";
 
-      fetch('https://ph4xus.github.io/list.json')
-        .then(response => response.json())
-        .then(data => {
-          const gameContainer = document.getElementById('image-container');
-          data.forEach(game => {
-            const gameCard = document.createElement('div');
-            gameCard.classList.add('game-card');
-            gameCard.innerHTML = `
-              <a href="${baseUrl + game.linksrc}" target="_blank" class="image-link">
-                <img src="${baseUrl + game.imgsrc}" alt="${game.name}" style="width: 100px; height: 100px; padding: 20px;">
-              </a>
-            `;
-            gameContainer.appendChild(gameCard);
-          });
-        })
-        .catch(error => console.error('Error loading game data:', error));
+        fetch('https://ph4xus.github.io/list.json')
+            .then(response => response.json())
+            .then(data => {
+                const gameContainer = document.getElementById('image-container');
+                data.forEach(game => {
+                    const gameCard = document.createElement('div');
+                    gameCard.classList.add('game-card');
+                    gameCard.innerHTML = `
+                        <a href="${baseUrl + game.linksrc}" target="_blank" class="image-link">
+                            <img src="${baseUrl + game.imgsrc}" alt="${game.name}" style="width: 100px; height: 100px; padding: 20px;">
+                        </a>
+                    `;
+                    gameContainer.appendChild(gameCard);
+                });
 
-        let link2 = getParentFolder(); 
-        function default2(){
-            setTimeout(function() {
-            var links = document.querySelectorAll('div.image-container div');
-            links.forEach(function(link) {
+                // Ensure click events are attached after elements are added
+                attachClickEvents();
+            })
+            .catch(error => console.error('Error loading game data:', error));
+
+        function attachClickEvents() {
+            const link2 = getParentFolder();
+            const links = document.querySelectorAll('div.image-card a');
+            links.forEach(link => {
                 link.onclick = function(event) {
-                    var gameName = link.querySelector('img') ? link.querySelector('img').alt : 'Why are you here';
                     event.preventDefault(); 
-                    let encodedStr = btoa(link.href);
+                    const gameName = link.querySelector('img') ? link.querySelector('img').alt : 'Unknown Game';
+                    const encodedStr = btoa(link.href);
                     window.open(link2 + "/play?game=" + encodedStr + "&name=" + encodeURIComponent(gameName), '_self');
-
                 };
-            }); 
-        }, 50); 
-    }
-    default2();
+            });
+        }
     </script>
 </body>
-</html>a
+</html>
