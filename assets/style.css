@@ -7,6 +7,9 @@ body {
 #image-container {
     padding: 10px 100px;
 }
+.game-card {
+    display: inline-block;
+}
 .image-link {
     display: inline-block;
     margin: 10px;
