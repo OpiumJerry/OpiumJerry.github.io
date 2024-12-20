@@ -1,0 +1,87 @@
+body {
+    background-color: black;
+    font-family: "Anton SC", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+#image-container {
+    padding: 10px 100px;
+}
+.game-card {
+    display: inline-block;
+}
+.image-link {
+    display: inline-block;
+    margin: 10px;
+}
+.image-link img {
+    max-width: 150px;
+    max-height: 150px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+.image-link img:hover {
+    transform: scale(1.1);
+}
+.title {
+    text-align: center;
+    color: white;
+    font-family: "Anton SC", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+footer {
+    background-color: #111; /* Slightly lighter black to differentiate from the background */
+    color: #fff; /* White text for contrast */
+    text-align: center; /* Center the text */
+    padding: 15px 0; /* Add padding for a comfortable spacing */
+    border-top: 1px solid #444; /* Subtle border to create separation */
+    width: 100%; /* Ensure it spans the full width */
+    font-size: 14px; /* Set a readable font size */
+}
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+@media screen and (max-height: 450px) {
+    .overlay { overflow-y: auto; }
+    .overlay a { font-size: 20px; }
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
