@@ -35,6 +35,9 @@
     <div id="image-container"></div>
     <footer>© OPIUMJERRY 2024. All rights reserved</footer>
     <script>
+      function getParentFolder() {
+    return window.location.origin; // Returns the protocol + domain
+}
         function openNav() {
             document.getElementById("myNav").style.height = "100%";
         }
@@ -61,7 +64,22 @@
         })
         .catch(error => console.error('Error loading game data:', error));
 
-        openAboutBlank();
+        let link2 = getParentFolder(); 
+        function default2(){
+            setTimeout(function() {
+            var links = document.querySelectorAll('section.gxme-grid a');
+            links.forEach(function(link) {
+                link.onclick = function(event) {
+                    var gameName = link.querySelector('img') ? link.querySelector('img').alt : 'Why are you here';
+                    event.preventDefault(); 
+                    let encodedStr = btoa(link.href);
+                    window.open(link2 + "/play?game=" + encodedStr + "&name=" + encodeURIComponent(gameName), '_self');
+
+                };
+            }); 
+        }, 50); 
+    }
+    defualt2();
     </script>
 </body>
 </html>
