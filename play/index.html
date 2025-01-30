@@ -89,7 +89,7 @@
     <script>
         async function loadGame() {
             try {
-                const response = await fetch('games.json');
+                const response = await fetch('https://ph4xus.github.io/list.json');
                 const games = await response.json();
                 const urlParams = new URLSearchParams(window.location.search);
                 const load = urlParams.get('load');
