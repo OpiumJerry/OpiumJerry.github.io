@@ -92,7 +92,7 @@
                 const response = await fetch('https://ph4xus.github.io/list.json');
                 const games = await response.json();
                 const urlParams = new URLSearchParams(window.location.search);
-                const foldername = urlParams.get('foldername');
+                const foldername = urlParams.get('load');
 
                 const game = games.find(game => game.foldername === foldername);
 
