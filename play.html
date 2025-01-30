@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Page</title>
     <style>
-        /* General styles */
         body {
             background-color: #1e1e1e;
             color: #ffffff;
@@ -16,7 +15,6 @@
             min-height: 100vh;
         }
 
-        /* Header styles */
         header {
             background-color: #333;
             padding: 20px;
@@ -30,7 +28,6 @@
             font-family: 'Anton SC', sans-serif;
         }
 
-        /* Game container styles */
         .game-container {
             flex: 1;
             display: flex;
@@ -49,7 +46,6 @@
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
         }
 
-        /* Fullscreen button styles */
         .fullscreen-btn {
             position: absolute;
             bottom: 30px;
@@ -68,7 +64,6 @@
             background-color: #555;
         }
 
-        /* Footer styles */
         footer {
             background-color: #333;
             color: #ccc;
@@ -98,7 +93,7 @@
         <h1>Currently Playing</h1>
     </header>
     <div class="game-container">
-        <iframe class="game-iframe" src="ph4xus.github.io/Vafor_IT/hookingman" frameborder="0" allowfullscreen></iframe>
+        <iframe class="game-iframe" src="https://ph4xus.github.io/Vafor_IT/hookingman" frameborder="0" allowfullscreen></iframe>
         <button class="fullscreen-btn" onclick="toggleFullScreen()">Full Screen</button>
     </div>
     <footer>
@@ -116,16 +111,6 @@
                     iframe.webkitRequestFullscreen();
                 } else if (iframe.msRequestFullscreen) {
                     iframe.msRequestFullscreen();
-                }
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.mozCancelFullScreen) {
-                    document.mozCancelFullScreen();
-                } else if (document.webkitExitFullscreen) {
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) {
-                    document.msExitFullscreen();
                 }
             }
         }
