@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opium jerry 🤑</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #444;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            font-family: 'Anton SC', sans-serif;
+        }
+
+        .game-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #111;
+            position: relative;
+        }
+
+        .game-iframe {
+            width: 80%;
+            height: 600px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .fullscreen-btn {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            padding: 10px 20px;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        .fullscreen-btn:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 10px 0;
+            border-top: 2px solid #444;
+            font-size: 0.9em;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Currently Playing</h1>
+    </header>
+    <div class="game-container">
+        <iframe class="game-iframe" src="https://ph4xus.github.io/Vafor_IT/hookingman" frameborder="0" allowfullscreen></iframe>
+        <button class="fullscreen-btn" onclick="toggleFullScreen()">Full Screen</button>
+    </div>
+    <footer>
+        <p>&copy; 2025 OpiumJerry. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleFullScreen() {
+            const iframe = document.querySelector('.game-iframe');
+            if (!document.fullscreenElement) {
+                if (iframe.requestFullscreen) {
+                    iframe.requestFullscreen();
+                } else if (iframe.mozRequestFullScreen) {
+                    iframe.mozRequestFullScreen();
+                } else if (iframe.webkitRequestFullscreen) {
+                    iframe.webkitRequestFullscreen();
+                } else if (iframe.msRequestFullscreen) {
+                    iframe.msRequestFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
