@@ -52,7 +52,7 @@
             const gameCard = document.createElement('div');
             gameCard.classList.add('game-card');
             gameCard.innerHTML = `
-              <a href="${baseUrl + game.linksrc}" target="_blank" class="image-link">
+              <a href="${"/play/?load=" + game.foldername}" target="_blank" class="image-link">
                 <img src="${baseUrl + game.imgsrc}" alt="${game.name}" style="width: 100px; height: 100px; padding: 20px;">
               </a>
             `;
