@@ -22,8 +22,12 @@
         <p>&copy; 2025 OpiumJerry. All rights reserved.</p>
     </footer>
 
-    <script src="theme.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('lightmode') === 'true') {
+                document.body.classList.add('light-mode');
+            }
+        });
         const toggleSwitch = document.getElementById('theme-toggle');
 
         if (localStorage.getItem('lightmode') === 'true') {
