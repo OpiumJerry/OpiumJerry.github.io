@@ -1,9 +1,3 @@
-const isLightMode = localStorage.getItem('lightmode');
-
-if (isLightMode) {
-switchToWhiteMode();
-}
-
 function switchToWhiteMode() {
     const whiteModeStyles = `
         body {
@@ -105,3 +99,7 @@ function switchToWhiteMode() {
 
 }
 
+const isLightMode = localStorage.getItem('lightmode');
+if (isLightMode === 'true') {
+    switchToWhiteMode();
+}
