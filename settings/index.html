@@ -6,46 +6,119 @@
     <title>Settings - Opium Jerry 🤑</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+header {
+    background-color: #1f1f1f;
+    padding: 1em;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+main {
+    padding: 2em;
+}
+
+footer {
+    background-color: #1f1f1f;
+    color: #ffffff;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.light-mode body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.light-mode header, .light-mode footer {
+    background-color: #f1f1f1;
+    color: #000000;
+}
+
+.settings {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.toggle-container {
+    background-color: #1f1f1f;
+    padding: 1em;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+.toggle-container label {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.toggle-switch input {
+    width: 50px;
+    height: 25px;
+}
+    </style>
 <body>
 
-    <nav>
-        <a href="https://opiumjerry.github.io"><h2>Opium Jerry</h2></a>
-    </nav>
-    <div class="content">
-        <h1>Settings</h1>
-        <div class="toggle-switch">
-            <input type="checkbox" id="theme-toggle">
-            <label for="theme-toggle">Light Mode</label>
-        </div>
-    </div>
+    <header>
+        <nav>
+            <a href="https://opiumjerry.github.io"><h2>Opium Jerry</h2></a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="settings">
+            <h1>Settings</h1>
+            <div class="toggle-container">
+                <label for="theme-toggle">Light Mode</label>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="theme-toggle">
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer>
         <p>&copy; 2025 OpiumJerry. All rights reserved.</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            if (localStorage.getItem('lightmode') === 'true') {
-                document.body.classList.add('light-mode');
+            const isLightMode = localStorage.getItem('lightmode') === 'true';
+            const body = document.body;
+            const toggleSwitch = document.getElementById('theme-toggle');
+
+            if (isLightMode) {
+                body.classList.add('light-mode');
+                toggleSwitch.checked = true;
             }
+
+            toggleSwitch.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    body.classList.add('light-mode');
+                    localStorage.setItem('lightmode', 'true');
+                } else {
+                    body.classList.remove('light-mode');
+                    localStorage.setItem('lightmode', 'false');
+                }
+            });
         });
-        const toggleSwitch = document.getElementById('theme-toggle');
-
-        if (localStorage.getItem('lightmode') === 'true') {
-            toggleSwitch.checked = true;
-            document.body.classList.add('light-mode');
-        }
-
-        toggleSwitch.addEventListener('change', switchTheme);
-
-        function switchTheme(e) {
-            if (e.target.checked) {
-                document.body.classList.add('light-mode');
-                localStorage.setItem('lightmode', 'true');
-            } else {
-                document.body.classList.remove('light-mode');
-                localStorage.setItem('lightmode', 'false');
-            }
-        }
     </script>
 
 </body>
