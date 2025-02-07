@@ -6,8 +6,8 @@
     <title>Opium Jerry 🤑</title>
     <style>
         body {
-            background-color: #1e1e1e;
-            color: #ffffff;
+            background-color: #000;
+            color: #fff;
             font-family: Arial, sans-serif;
             margin: 0;
             display: flex;
@@ -15,35 +15,42 @@
             min-height: 100vh;
         }
 
-        header {
-            background-color: #333;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 2px solid #444;
+        nav {
+            background-color: #000;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #fff;
         }
 
-        header h1 {
+        nav h2 {
             margin: 0;
-            font-size: 2em;
+            font-size: 1.5em;
             font-family: 'Anton SC', sans-serif;
         }
 
         .game-container {
             flex: 1;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             padding: 20px;
-            background-color: #111;
             position: relative;
+        }
+
+        .currently-playing {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.2em;
+            font-family: 'Anton SC', sans-serif;
         }
 
         .game-iframe {
             width: 80%;
             height: 600px;
-            border: 2px solid #ccc;
+            border: 2px solid #fff;
             border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
         }
 
         .fullscreen-btn {
@@ -51,8 +58,8 @@
             bottom: 30px;
             right: 30px;
             padding: 10px 20px;
-            background-color: #444;
-            color: #fff;
+            background-color: #fff;
+            color: #000;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -61,26 +68,26 @@
         }
 
         .fullscreen-btn:hover {
-            background-color: #555;
+            background-color: #ccc;
         }
 
         footer {
-            background-color: #333;
-            color: #ccc;
+            background-color: #000;
+            color: #fff;
             text-align: center;
             padding: 10px 0;
-            border-top: 2px solid #444;
+            border-top: 2px solid #fff;
             font-size: 0.9em;
         }
-
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Currently Playing</h1>
-    </header>
+    <nav>
+        <h2>Opium Jerry</h2>
+    </nav>
     <div class="game-container">
+        <div class="currently-playing">Currently Playing</div>
         <iframe class="game-iframe" src="" frameborder="0" allowfullscreen></iframe>
         <button class="fullscreen-btn" onclick="toggleFullScreen()">Full Screen</button>
     </div>
@@ -99,7 +106,7 @@
 
                 if (game) {
                     document.querySelector('.game-iframe').src = "https://ph4xus.github.io" + game.linksrc;
-                    document.querySelector('header h1').textContent = `Currently Playing: ${game.name}`;
+                    document.querySelector('.currently-playing').textContent = `Currently Playing: ${game.name}`;
                 } else {
                     console.error('Game not found');
                 }
