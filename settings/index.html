@@ -92,10 +92,6 @@ footer {
             const body = document.body;
             const toggleSwitch = document.getElementById('theme-toggle');
 
-            if (isLightMode) {
-                body.classList.add('light-mode');
-                toggleSwitch.checked = true;
-            }
 
             toggleSwitch.addEventListener('change', (e) => {
                 if (e.target.checked) {
