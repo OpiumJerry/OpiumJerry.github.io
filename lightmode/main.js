@@ -99,7 +99,6 @@ function switchToWhiteMode() {
 
 }
 
-const isLightMode = localStorage.getItem('lightmode');
-if (isLightMode === 'true') {
+if (localStorage.getItem('lightmode') == 'true') {
     switchToWhiteMode();
 }
