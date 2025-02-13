@@ -34,13 +34,18 @@
     <div id="image-container"></div>
     <footer>© OPIUMJERRY 2024. All rights reserved</footer>
     <script>
+        function getParentFolder() {
+            return window.location.origin; // Returns the protocol + domain
+        }
+
         function openNav() {
             document.getElementById("myNav").style.height = "100%";
         }
+
         function closeNav() {
             document.getElementById("myNav").style.height = "0%";
         }
-  
+
         const baseUrl = "https://ph4xus.github.io/";
 
       fetch('https://ph4xus.github.io/list.json')
@@ -59,6 +64,7 @@
           });
         })
         .catch(error => console.error('Error loading game data:', error));
+
 
     </script>
 </body>
